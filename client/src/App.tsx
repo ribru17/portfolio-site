@@ -1,34 +1,50 @@
-import React from 'react';
-import './App.css';
+import React from 'react'
+import './App.css'
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom"
+import Home from './Components/Pages/Home'
+import Contact from './Components/Pages/Contact'
 
 function App() {
   
-  const sendRequest = async () => {
-    let rootUrl = process.env.NODE_ENV === 'production' ? 'https://rb-portfolio-site.herokuapp.com' : ''
-    await fetch(`${rootUrl}/api/hello`, {
-      method: 'POST'
-    })
-  }
+  // const sendRequest = async () => {
+  //   let rootUrl = process.env.NODE_ENV === 'production' ? 'https://rb-portfolio-site.herokuapp.com' : ''
+  //   await fetch(`${rootUrl}/api/hello`, {
+  //     method: 'POST'
+  //   })
+  // }
 
   return (
-    <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" /> */}
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <button onClick={sendRequest}>Send Request</button>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <BrowserRouter>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/">Riley Bruins</Link>
+            </li>
+            <li>
+              <Link to="/contact">Contact</Link>
+            </li>
+          </ul>
+        </nav>
+
+        {/* A <Switch> looks through its children <Route>s and
+            renders the first one that matches the current URL. */}
+        <Routes>
+          <Route path="/contact" element={<Contact />}>
+            
+          </Route>
+          <Route path="/" element={<Home />}>
+            
+          </Route>
+        </Routes>
+      </div>
+    </BrowserRouter>
+  )
 }
 
 export default App;

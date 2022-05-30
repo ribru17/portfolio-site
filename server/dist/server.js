@@ -10,6 +10,8 @@ const path_1 = __importDefault(require("path"));
 dotenv_1.default.config({ path: __dirname + './../../.env' }); // starts from 'dist' folder
 const PORT = process.env.PORT || 8000;
 const app = (0, express_1.default)();
+const apiRouter = express_1.default.Router();
+const mainRouter = express_1.default.Router();
 app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.use(express_1.default.static(path_1.default.join(__dirname, '../../client/build')));
@@ -17,8 +19,7 @@ app.post('/api/hello', (req, res) => {
     console.log("hi there");
     res.end();
 });
-app.get('/', (req, res) => {
-    console.log("got main");
+app.get('*', (req, res) => {
     res.sendFile(path_1.default.join(__dirname, '../../client/build/index.html'));
 });
 app.listen(PORT, () => {

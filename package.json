@@ -1,0 +1,25 @@
+{
+  "name": "portfolio-site",
+  "version": "1.0.0",
+  "main": "server/dist/server.js",
+  "description": "A web portfolio of myself made by myself to showcase what I can do.",
+  "scripts": {
+    "devStart": "concurrently \"cd client && npm start\" \"cd server && npm run devStart\"",
+    "start": "npm start --prefix server",
+    "build": "npm run build --prefix client",
+    "postinstall": "cd client && npm install && cd ../server && npm install"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ribru17/portfolio-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ribru17/portfolio-site/issues"
+  },
+  "devDependencies": {
+    "concurrently": "^7.2.1"
+  }
+}

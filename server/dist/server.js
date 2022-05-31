@@ -12,9 +12,6 @@ dotenv_1.default.config({ path: __dirname + './../../.env' }); // starts from 'd
 const PORT = process.env.PORT || 8000;
 const app = (0, express_1.default)();
 const transporter = nodemailer_1.default.createTransport({
-    // host: "smtp.gmail.com", // hotmail provider
-    // port: 465,
-    // secure: true,
     service: 'gmail',
     auth: {
         user: process.env.EMAIL_ADDRESS,

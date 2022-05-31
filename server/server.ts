@@ -10,9 +10,6 @@ const PORT = process.env.PORT || 8000
 const app = express()
 
 const transporter = nodemailer.createTransport({
-    // host: "smtp.gmail.com", // hotmail provider
-    // port: 465,
-    // secure: true,
     service: 'gmail',
     auth: {
       user: process.env.EMAIL_ADDRESS,

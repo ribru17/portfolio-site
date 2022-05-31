@@ -2,10 +2,33 @@ body {
   color: white;
 }
 
+.mainBod {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
 .subHeader {
   margin-top: 0;
   padding-bottom: 20px;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 1px solid #ddd;
+  transition: 1.5s linear;
+  transition-delay: 0.15s;
+  max-width: 75%;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.textBlock {
+  width: 50%;
+  max-width: 350px;
+  padding: 5%;
+}
+
+.leftBlock {
+  /* align-self: flex-start; */
+  margin-right: 25%;
 }
 
 a, a:visited {
@@ -56,7 +79,7 @@ a:focus {
   position: absolute;
   float: right;
   padding: 5%;
-  right: 5%;
+  /* right: 5%; */
 }
 
 @media (max-width: 800px) {
@@ -68,5 +91,10 @@ a:focus {
   #menuSvg {
     display: flex;
     position: relative;
+  }
+
+  .subHeader {
+    white-space: inherit;
+    transition: none;
   }
 }

@@ -28,13 +28,14 @@ function App() {
           </div>
           <Menu fill='white' id="menuSvg" onClick={() => {setIsClicked(!isClicked)}}/>
         </div>
-
-        <Routes>
-          <Route path="/contact" element={<Contact />}></Route>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/projects" element={<Projects />}></Route>
-          <Route path="/experience" element={<Experience />}></Route>
-        </Routes>
+        <div className="mainBod">
+          <Routes>
+            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/" element={<Home />}></Route>
+            <Route path="/projects" element={<Projects />}></Route>
+            <Route path="/experience" element={<Experience />}></Route>
+          </Routes>
+        </div>
       </div>
     </BrowserRouter>
   )

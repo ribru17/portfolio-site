@@ -9,6 +9,8 @@ dotenv.config({path: __dirname + './../../.env'}) // starts from 'dist' folder
 const PORT = process.env.PORT || 8000
 const app = express()
 
+console.log(process.env.EMAIL_ADDRESS)
+
 const transporter = nodemailer.createTransport({
     host: "smtp-mail.outlook.com", // hotmail provider
     port: 587,

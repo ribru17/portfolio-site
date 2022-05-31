@@ -56,9 +56,8 @@ export default function Home() {
       <div className='textBlock leftBlock'>
         <h2>About Me</h2>
         <p>
-          Some stuff about me lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem
-          ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-          lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
+          I am a full stack developer with 3+ years of experience building websites.
+          I love programming and I have built countless websites, working in teams and by myself.
         </p>
       </div>
       <Canvas style={canvasStyle}>
@@ -66,7 +65,7 @@ export default function Home() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         {/* <Box position={[-1.2, 0, 0]} /> */}
-        <Box position={[2, 0, 0]} />
+        <Box position={[1.5, 0, 0]} />
       </Canvas>
     </>
   )

@@ -11,6 +11,7 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 dotenv_1.default.config({ path: __dirname + './../../.env' }); // starts from 'dist' folder
 const PORT = process.env.PORT || 8000;
 const app = (0, express_1.default)();
+console.log(process.env.EMAIL_ADDRESS);
 const transporter = nodemailer_1.default.createTransport({
     host: "smtp-mail.outlook.com",
     port: 587,

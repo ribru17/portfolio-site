@@ -40,8 +40,28 @@ a:hover {
   float: right;
   position: relative;
   justify-content: center;
+  align-items: center;
 }
 
 #otherLinks a {
   padding: 20px;
+}
+
+#menuSvg {
+  display: none;
+  position: absolute;
+  float: right;
+  padding: 5%;
+}
+
+@media (max-width: 800px) {
+  #otherLinks {
+    display: none;
+    position: absolute;
+  }
+
+  #menuSvg {
+    display: flex;
+    position: relative;
+  }
 }

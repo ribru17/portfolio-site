@@ -11,8 +11,8 @@ export default function Contact() {
     const sendMail = async (e: FormEvent) => {
         e.preventDefault()
         let fields: ContactForm = (e.target as HTMLFormElement).elements
-        console.log(fields.name?.value || "")
-        await fetch('/api/contact', {
+        let rootUrl = process.env.NODE_ENV === 'production' ? 'https://rb-portfolio-site.herokuapp.com' : ''
+        await fetch(`${rootUrl}/api/contact`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

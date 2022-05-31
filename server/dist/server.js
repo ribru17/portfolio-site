@@ -11,17 +11,15 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 dotenv_1.default.config({ path: __dirname + './../../.env' }); // starts from 'dist' folder
 const PORT = process.env.PORT || 8000;
 const app = (0, express_1.default)();
-console.log(process.env.EMAIL_ADDRESS);
 const transporter = nodemailer_1.default.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
+    // host: "smtp.gmail.com", // hotmail provider
+    // port: 465,
+    // secure: true,
+    service: 'gmail',
     auth: {
         user: process.env.EMAIL_ADDRESS,
         pass: process.env.EMAIL_PW,
-    },
-    tls: {
-        rejectUnauthorized: false
-    },
+    }
 });
 transporter.verify((error, success) => {
     if (error) {

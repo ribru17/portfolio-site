@@ -9,18 +9,15 @@ dotenv.config({path: __dirname + './../../.env'}) // starts from 'dist' folder
 const PORT = process.env.PORT || 8000
 const app = express()
 
-console.log(process.env.EMAIL_ADDRESS)
-
 const transporter = nodemailer.createTransport({
-    host: "smtp-mail.outlook.com", // hotmail provider
-    port: 587,
+    // host: "smtp.gmail.com", // hotmail provider
+    // port: 465,
+    // secure: true,
+    service: 'gmail',
     auth: {
       user: process.env.EMAIL_ADDRESS,
       pass: process.env.EMAIL_PW,
-    },
-    tls: {
-        rejectUnauthorized: false
-    },
+    }
 })
 
 transporter.verify((error, success) => {

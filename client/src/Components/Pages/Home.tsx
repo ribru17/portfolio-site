@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import Projects from './Projects'
 import Experience from './Experience'
@@ -10,28 +10,47 @@ interface TorusProps extends MeshProps {
   points: number
 }
 
+function Box(props: JSX.IntrinsicElements['mesh']) {
+  const ref = useRef<THREE.Mesh>(null!)
+
+  useFrame((state, delta) => {
+    ref.current.rotation.x += 0.01
+  })
+
+  return (
+    <mesh
+      {...props}
+      ref={ref}
+    >
+      <boxGeometry args={[1, 1, 1]}></boxGeometry>
+      <meshStandardMaterial color='slateblue' />
+    </mesh>
+  )
+}
+
 function Torus(props: TorusProps) {
-    // This reference will give us direct access to the THREE.Mesh object
-    const ref = useRef<THREE.Mesh>(null!)
-    // Rotate mesh every frame, this is outside of React without overhead
-    useFrame((state, delta) => {
-      ref.current.rotation.y += 0.008
-      ref.current.rotation.z += 0.01
-    })
-  
-    return (
-      <mesh
-        {...props}
-        ref={ref}>
-        <torusGeometry args={[1, 0.1, 16, props.points]} />
-        <meshPhongMaterial color={'goldenrod'} />
-      </mesh>
-    )
-  }
+  // This reference will give us direct access to the THREE.Mesh object
+  const ref = useRef<THREE.Mesh>(null!)
+  // Rotate mesh every frame, this is outside of React without overhead
+  useFrame((state, delta) => {
+    ref.current.rotation.y += 0.008
+    ref.current.rotation.z += 0.01
+  })
+
+  return (
+    <mesh
+      {...props}
+      ref={ref}>
+      <torusGeometry args={[1, 0.1, 16, props.points]} />
+      <meshPhongMaterial color={'goldenrod'} />
+    </mesh>
+  )
+}
 
 export default function Home() {
 
   const [subHeaderWidth, setSubHeaderWidth] = useState('0%')
+  const [scrollPercent, setScrollPercent] = useState(0)
 
   const canvasStyle: React.CSSProperties = {
     position: 'fixed',
@@ -42,8 +61,17 @@ export default function Home() {
     msUserSelect: 'none',
   }
 
+  const handleScroll = (e: Event) => {
+    let scrollPerc =  window.scrollY / (document.body.offsetHeight - window.innerHeight)
+    setScrollPercent(scrollPerc)
+  }
+
   useEffect(() => {
     setSubHeaderWidth('75%')
+    window.addEventListener('scroll', handleScroll)
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
   }, [])
 
   return (
@@ -58,11 +86,10 @@ export default function Home() {
         </p>
       </div>
       <div className='textBlock rightBlock'>
-        <h2>Reach Me</h2>
-        <p>
-          I am a full stack developer with 3+ years of experience building websites.
-          I love programming and I have worked on countless projects, both in teams and by myself.
-        </p>
+        <h2>Reach Out</h2>
+          <p>
+            Find me on <a href="https://github.com/ribru17">Github</a>
+          </p>
       </div>
       <Projects />
       <Experience />
@@ -73,9 +100,10 @@ export default function Home() {
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         {/* <Box position={[-1.2, 0, 0]} /> */}
-        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI / 3} points={5}/>
-        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
-        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
+        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 3} points={5}/>
+        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
+        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
+        <Box position={[-1.5, 2 * scrollPercent - 2.5, 6 + scrollPercent * -5]} />
       </Canvas>
     </>
   )

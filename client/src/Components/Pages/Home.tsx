@@ -1,33 +1,30 @@
 import * as THREE from 'three'
 import { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
+import Projects from './Projects'
+import Experience from './Experience'
+import Contact from './Contact'
 
-function Box(props: JSX.IntrinsicElements['mesh']) {
+type MeshProps = JSX.IntrinsicElements['mesh']
+interface TorusProps extends MeshProps {
+  points: number
+}
+
+function Torus(props: TorusProps) {
     // This reference will give us direct access to the THREE.Mesh object
     const ref = useRef<THREE.Mesh>(null!)
-    const [edges, setEdges] = useState(3)
     // Rotate mesh every frame, this is outside of React without overhead
     useFrame((state, delta) => {
       ref.current.rotation.y += 0.008
       ref.current.rotation.z += 0.01
     })
-
-    useEffect(() => {
-      ref.current.rotation.x = 0.25
-      const interval = setInterval(() => {
-        setEdges(Math.round(Date.now() / 1000) % 5 + 3)
-      }, 1000)
-      return () => {
-        clearInterval(interval)
-      }
-    }, [])
   
     return (
       <mesh
         {...props}
         ref={ref}>
-        <torusGeometry args={[edges / 6, 0.1, 16, edges]} />
-        <meshStandardMaterial color={'orange'} transparent={true} />
+        <torusGeometry args={[1, 0.1, 16, props.points]} />
+        <meshPhongMaterial color={'goldenrod'} />
       </mesh>
     )
   }
@@ -57,15 +54,28 @@ export default function Home() {
         <h2>About Me</h2>
         <p>
           I am a full stack developer with 3+ years of experience building websites.
-          I love programming and I have built countless websites, working in teams and by myself.
+          I love programming and I have worked on countless projects, both in teams and by myself.
         </p>
       </div>
+      <div className='textBlock rightBlock'>
+        <h2>Reach Me</h2>
+        <p>
+          I am a full stack developer with 3+ years of experience building websites.
+          I love programming and I have worked on countless projects, both in teams and by myself.
+        </p>
+      </div>
+      <Projects />
+      <Experience />
+      <Contact />
+
       <Canvas style={canvasStyle}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
         {/* <Box position={[-1.2, 0, 0]} /> */}
-        <Box position={[1.5, 0, 0]} />
+        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI / 3} points={5}/>
+        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
+        <Torus position={[1.5, 0, 0]} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
       </Canvas>
     </>
   )

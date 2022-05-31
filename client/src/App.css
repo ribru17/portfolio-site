@@ -13,8 +13,9 @@ body {
   margin-top: 0;
   padding-bottom: 20px;
   border-bottom: 1px solid #ddd;
-  transition: 1.5s linear;
-  transition-delay: 0.15s;
+  /* transition: 1.5s ease-in-out; */
+  transition: 1.5s cubic-bezier(0.85,-0.06, 0.88, 0.53);
+  /* transition-delay: 0.15s; */
   max-width: 75%;
   overflow: hidden;
   white-space: nowrap;
@@ -28,8 +29,11 @@ body {
 }
 
 .leftBlock {
-  /* align-self: flex-start; */
   margin-right: 25%;
+}
+
+.rightBlock {
+  margin-left: 25%;
 }
 
 a, a:visited {
@@ -41,7 +45,7 @@ a, a:visited {
 }
 
 a:hover {
-  text-shadow: 0px 0px 5px orange;
+  text-shadow: 0px 0px 5px goldenrod;
   background-color: black;
   outline: none;
 }

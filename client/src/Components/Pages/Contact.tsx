@@ -2,7 +2,6 @@ import {FormEvent} from "react"
 import './CSS/contact.css'
 import GithubIcon from "../SVGs/Github/Github"
 import LinkedInIcon from "../SVGs/LinkedIn/LinkedIn"
-import { Link } from "react-router-dom"
 
 export default function Contact() {
 

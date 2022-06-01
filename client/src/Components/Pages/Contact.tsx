@@ -1,4 +1,8 @@
 import {FormEvent} from "react"
+import './CSS/contact.css'
+import GithubIcon from "../SVGs/Github/Github"
+import LinkedInIcon from "../SVGs/LinkedIn/LinkedIn"
+import { Link } from "react-router-dom"
 
 export default function Contact() {
 
@@ -35,9 +39,19 @@ export default function Contact() {
     return (
         <>
             <h1>Contact</h1>
-            <form onSubmit={sendMail}>
-                <input type="text" placeholder="Enter your name" name="name" required></input>
-                <input type="textarea" placeholder="Enter message" name="message" required></input>
+            <div id="contactInvite">
+                <p>
+                    Check out my linked profiles on the right.
+                    If you have a question or you want to work with me, send me an email below!
+                </p>
+                <div id="logoCont">
+                    <a href="https://github.com/ribru17"><GithubIcon /></a>
+                    <a href="https://www.linkedin.com/in/riley-bruins/"><LinkedInIcon /></a>
+                </div>
+            </div>
+            <form onSubmit={sendMail} id='contactForm'>
+                <input type="text" placeholder="Your name" name="name" required></input>
+                <input type="text" placeholder="Your message" name="message" required></input>
                 <input type="submit" name="submit" value="Send"></input>
             </form>
         </>

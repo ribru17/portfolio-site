@@ -10,7 +10,7 @@ import Home from './Components/Pages/Home'
 import Contact from './Components/Pages/Contact'
 import Projects from './Components/Pages/Projects'
 import Experience from './Components/Pages/Experience'
-import Menu from './Components/SVGs/Menu'
+import Menu from './Components/SVGs/Menu/Menu'
 
 function App() {
 

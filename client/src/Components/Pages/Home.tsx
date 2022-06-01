@@ -86,9 +86,9 @@ export default function Home() {
         </p>
       </div>
       <div className='textBlock rightBlock'>
-        <h2>Reach Out</h2>
+        <h2>Something Else</h2>
           <p>
-            Find me on <a href="https://github.com/ribru17">Github</a>
+            Some other thing
           </p>
       </div>
       <Projects />

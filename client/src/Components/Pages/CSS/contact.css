@@ -18,12 +18,12 @@ input:hover, textarea:hover {
 }
 
 input::placeholder, textarea::placeholder {
-    color: #ddd;
+    color: #aaa;
     font-weight: bold;
 }
 
 input:-ms-input-placeholder, textarea:-ms-input-placeholder {
-    color: #ddd;
+    color: #aaa;
     font-weight: bold;
 }
 
@@ -33,11 +33,12 @@ button {
 }
 
 input:focus-visible, textarea:focus-visible {
-    border: 2px solid #ddd;
+    /* border: 2px solid #000; */
     outline: none;
-    background-color: #ddd;
+    background-color: #aaa;
     color: black;
     /* margin-bottom: 10px; */
+    border-radius: 16px;
 }
 
 button.coolButton {

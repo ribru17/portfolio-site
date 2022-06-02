@@ -29,11 +29,11 @@ export default function CoolButton(props: HTMLProps<HTMLButtonElement>) {
             if (buttonRef.current) {
                 buttonRef.current.style.color = 'white'
             }
-        }, 1000)
+        }, 500)
     }
 
     return (
-        <button ref={buttonRef} onClick={(e: MouseEvent<HTMLButtonElement>) => {
+        <button className="coolButton" ref={buttonRef} onClick={(e: MouseEvent<HTMLButtonElement>) => {
             handleClick(e)
             props.onClick?.(e)
             }}>

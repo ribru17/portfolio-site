@@ -1,7 +1,8 @@
-import {FormEvent} from "react"
+import { FormEvent, useRef, useState } from "react"
 import './CSS/contact.css'
 import GithubIcon from "../SVGs/Github/Github"
 import LinkedInIcon from "../SVGs/LinkedIn/LinkedIn"
+import CoolButton from "../CoolButton/CoolButton"
 
 export default function Contact() {
 
@@ -10,6 +11,9 @@ export default function Contact() {
         message?: HTMLInputElement,
         submit?: HTMLInputElement
     }
+
+    const formRef = useRef<HTMLFormElement>(null)
+    const [buttonText, setButtonText] = useState('Send')
 
     const sendMail = async (e: FormEvent) => {
         e.preventDefault()
@@ -23,6 +27,10 @@ export default function Contact() {
         if (fields.message) {
             fields.message.value = ''
         }
+        setButtonText('Message sent!')
+        setTimeout(() => {
+            setButtonText('Send')
+        }, 1000)
         await fetch(`${rootUrl}/api/contact`, {
             method: 'POST',
             headers: {
@@ -48,10 +56,10 @@ export default function Contact() {
                     <a href="https://www.linkedin.com/in/riley-bruins/"><LinkedInIcon /></a>
                 </div>
             </div>
-            <form onSubmit={sendMail} id='contactForm'>
-                <input type="text" placeholder="Your name" name="name" required></input>
-                <input type="text" placeholder="Your message" name="message" required></input>
-                <input type="submit" name="submit" value="Send"></input>
+            <form ref={formRef} onSubmit={sendMail} id='contactForm'>
+                <input autoComplete="off" type="text" placeholder="Your name" name="name" required></input>
+                <textarea rows={3} autoComplete="off" placeholder="Your message" name="message" required></textarea>
+                <CoolButton title={buttonText} onClick={(e) => formRef.current?.submit} />
             </form>
         </>
     )

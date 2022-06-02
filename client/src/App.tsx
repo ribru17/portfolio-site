@@ -19,7 +19,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <div className='navBar'>
+        <div id='navBar'>
           <Link id="nameLink" to="/">Riley Bruins</Link>
           <div id="otherLinks">
             <Link to="/projects">Projects</Link>
@@ -28,7 +28,7 @@ function App() {
           </div>
           <Menu fill='white' id="menuSvg" onClick={() => {setIsClicked(!isClicked)}}/>
         </div>
-        <div className="mainBod">
+        <div id="mainBody">
           <Routes>
             <Route path="/contact" element={<Contact />}></Route>
             <Route path="/" element={<Home />}></Route>

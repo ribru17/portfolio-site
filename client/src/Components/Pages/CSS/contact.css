@@ -1,3 +1,57 @@
+input, textarea {
+    padding: 5%;
+    border: 2px solid goldenrod;
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    min-width: 300px;
+    resize: none;
+    transition: 0.25s;
+    background-color: #555;
+    color: white;
+    font-size: 1em;
+    /* font-weight: bold; */
+}
+
+input:hover, textarea:hover {
+    background-color: #222;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #ddd;
+    font-weight: bold;
+}
+
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+    color: #ddd;
+    font-weight: bold;
+}
+
+button {
+    padding: 5%;
+    width: 100%;
+}
+
+input:focus-visible, textarea:focus-visible {
+    border: 2px solid #ddd;
+    outline: none;
+    background-color: #ddd;
+    color: black;
+    /* margin-bottom: 10px; */
+}
+
+button.coolButton {
+    background-color: #555;
+}
+
+button.coolButton:hover {
+    background-color: #222;
+}
+
+button.coolButton:focus-visible {
+    background-color: #222;
+}
+
 #contactForm {
     padding: 5%;
     display: flex;
@@ -11,7 +65,9 @@
     padding: 0;
     display: flex;
     flex-direction: row;
-    max-width: 35%;
+    /* max-width: 35%; */
+    width: 35%;
+    min-width: 300px;
     text-align: left;
 }
 
@@ -31,17 +87,4 @@
 #logoCont svg:hover {
     fill: black;
     filter: drop-shadow(0px 0px 2px goldenrod);
-}
-
-input {
-    padding: 5%;
-    border: 2px solid slategrey;
-    width: 100%;
-    box-sizing: border-box;
-    margin: 2%;
-}
-
-input:focus-visible {
-    border: 2px solid darkgoldenrod;
-    outline: none;
 }

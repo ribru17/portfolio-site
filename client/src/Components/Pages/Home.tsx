@@ -42,7 +42,7 @@ function Torus(props: TorusProps) {
       {...props}
       ref={ref}>
       <torusGeometry args={[1, 0.1, 16, props.points]} />
-      <meshPhongMaterial color={'goldenrod'} />
+      <meshPhongMaterial color={'slateblue'} />
     </mesh>
   )
 }

@@ -19,6 +19,18 @@ body {
   src: url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300&display=swap');
 }
 
+textarea {
+  font-family: 'Roboto Condensed', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+p {
+  font-size: 1.25em;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -28,10 +40,18 @@ code {
   width: 100%;
 }
 
-h1 {
-  font-size: 3em;
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-p {
-  font-size: 1.25em;
+::-webkit-scrollbar-track {
+  background: darkgoldenrod;
+}
+
+::-webkit-scrollbar-thumb {
+  background: gold;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: goldenrod;
 }

@@ -20,7 +20,7 @@ function App() {
     <BrowserRouter>
       <div>
         <div id='navBar'>
-          <Link id="nameLink" to="/">Riley Bruins</Link>
+          <Link id="nameLink" to="/">Riley Bruins<img className='logo' src='logo192.png' alt='Logo'></img></Link>
           <div id="otherLinks">
             <Link to="/projects">Projects</Link>
             <Link to="/experience">Experience</Link>

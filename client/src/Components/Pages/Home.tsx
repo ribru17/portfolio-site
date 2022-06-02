@@ -52,6 +52,7 @@ export default function Home() {
   const [subHeaderWidth, setSubHeaderWidth] = useState('0%')
   const [scrollPercent, setScrollPercent] = useState(0)
 
+  // handling this in CSS proved a bit buggy
   const canvasStyle: React.CSSProperties = {
     position: 'fixed',
     top: 0,
@@ -62,10 +63,12 @@ export default function Home() {
   }
 
   const handleScroll = (e: Event) => {
-    let scrollPerc =  window.scrollY / (document.body.offsetHeight - window.innerHeight)
+    // window scroll percentage (clamped to be at most 1 for iOS overscrolling)
+    let scrollPerc =  Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
     setScrollPercent(scrollPerc)
   }
 
+  // expand animation on window load
   useEffect(() => {
     setSubHeaderWidth('75%')
     window.addEventListener('scroll', handleScroll)
@@ -99,7 +102,6 @@ export default function Home() {
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        {/* <Box position={[-1.2, 0, 0]} /> */}
         <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 3} points={5}/>
         <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
         <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />

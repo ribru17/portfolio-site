@@ -40,6 +40,10 @@ a:visited {
   margin-left: 25%;
 }
 
+.logo {
+  height: 100%;
+}
+
 #navBar {
   display: flex;
   width: 100%;
@@ -75,6 +79,13 @@ a:visited {
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nameLink .logo {
+  margin-left: 10px;
 }
 
 #otherLinks {

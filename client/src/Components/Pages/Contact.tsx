@@ -52,8 +52,8 @@ export default function Contact() {
                     If you have a question or you want to work with me, send me an email below!
                 </p>
                 <div id="logoCont">
-                    <a href="https://github.com/ribru17"><GithubIcon /></a>
-                    <a href="https://www.linkedin.com/in/riley-bruins/"><LinkedInIcon /></a>
+                    <a target="_blank" rel="noreferrer" href="https://github.com/ribru17"><GithubIcon /></a>
+                    <a target="_blank" rel="noreferrer" href="https://www.linkedin.com/in/riley-bruins/"><LinkedInIcon /></a>
                 </div>
             </div>
             <form ref={formRef} onSubmit={sendMail} id='contactForm'>

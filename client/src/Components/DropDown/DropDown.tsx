@@ -1,5 +1,5 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import './DropDown.css'
 
 interface DropDownType {
@@ -9,12 +9,40 @@ interface DropDownType {
 
 const DropDown = React.forwardRef((props: DropDownType, ref: React.ForwardedRef<HTMLDivElement>) => {
 
+    let location = useLocation()
+    const [activePage, setActivePage] = useState<string[]>([
+        '',
+        '',
+        '',
+        ''
+    ])
+
+    useEffect(() => {
+        switch(location.pathname) {
+            case '/':
+                setActivePage(['active', '', '', ''])
+                break
+            case '/projects':
+                setActivePage(['', 'active', '', ''])
+                break
+            case '/experience':
+                setActivePage(['', '', 'active', ''])
+                break
+            case '/contact':
+                setActivePage(['', '', '', 'active'])
+                break
+        }
+    }, [location])
+
     return (
-        <div ref={ref} id="dropDown" style={{maxWidth: props.showing ? '150px' : '0%'}}>
-            <Link to="/">Home</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/experience">Experience</Link>
-            <Link to="/contact">Contact</Link>
+        <div ref={ref} id="dropDown" style={{
+                maxWidth: props.showing ? '150px' : '0%',
+                borderRight: props.showing ? '2px solid darkgoldenrod' : 'none'
+            }}>
+            <Link className={activePage[0]} to="/">Home</Link>
+            <Link className={activePage[1]} to="/projects">Projects</Link>
+            <Link className={activePage[2]} to="/experience">Experience</Link>
+            <Link className={activePage[3]} to="/contact">Contact</Link>
         </div>
     )
 })

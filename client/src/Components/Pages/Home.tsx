@@ -1,5 +1,5 @@
 import * as THREE from 'three'
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState, useEffect, createRef, MutableRefObject } from 'react'
 import { Canvas, useFrame } from '@react-three/fiber'
 import Projects from './Projects'
 import Experience from './Experience'
@@ -7,14 +7,22 @@ import Contact from './Contact'
 
 type MeshProps = JSX.IntrinsicElements['mesh']
 interface TorusProps extends MeshProps {
-  points: number
+  points: number,
+}
+
+// reference to scroll percent. must be typed as mutable! appending ' | null' to the
+// type did not make it mutable as it would have with useRef. I believe this is a bug?...
+const state = {
+  scrollPercent: createRef<number>() as MutableRefObject<any>
 }
 
 function Box(props: JSX.IntrinsicElements['mesh']) {
   const ref = useRef<THREE.Mesh>(null!)
 
-  useFrame((state, delta) => {
+  useFrame(() => {
     ref.current.rotation.x += 0.01
+    ref.current.position.y = 2 * state.scrollPercent.current - 2.5
+    ref.current.position.z = 6 + state.scrollPercent.current * -5
   })
 
   return (
@@ -32,9 +40,11 @@ function Torus(props: TorusProps) {
   // This reference will give us direct access to the THREE.Mesh object
   const ref = useRef<THREE.Mesh>(null!)
   // Rotate mesh every frame, this is outside of React without overhead
-  useFrame((state, delta) => {
+  useFrame(() => {
     ref.current.rotation.y += 0.008
     ref.current.rotation.z += 0.01
+    ref.current.position.y = 2 * state.scrollPercent.current
+    ref.current.position.z = 5 * state.scrollPercent.current
   })
 
   return (
@@ -50,7 +60,6 @@ function Torus(props: TorusProps) {
 export default function Home() {
 
   const [subHeaderWidth, setSubHeaderWidth] = useState('0%')
-  const [scrollPercent, setScrollPercent] = useState(0)
 
   // handling this in CSS proved a bit buggy
   const canvasStyle: React.CSSProperties = {
@@ -63,12 +72,11 @@ export default function Home() {
   }
 
   const handleScroll = (e: Event) => {
-    // window scroll percentage (clamped to be at most 1 for iOS overscrolling)
-    let scrollPerc =  Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
-    setScrollPercent(scrollPerc)
+    // update scroll percent reference
+    state.scrollPercent.current = Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
   }
 
-  // expand animation on window load
+  // subheader expand animation on window load
   useEffect(() => {
     setSubHeaderWidth('75%')
     window.addEventListener('scroll', handleScroll)
@@ -102,10 +110,10 @@ export default function Home() {
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
-        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 3} points={5}/>
-        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
-        <Torus position={[1.5, 2 * scrollPercent, scrollPercent * 5]} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
-        <Box position={[-1.5, 2 * scrollPercent - 2.5, 6 + scrollPercent * -5]} />
+        <Torus position-x={1.5} rotation-y={Math.PI / 3} points={5}/>
+        <Torus position-x={1.5} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
+        <Torus position-x={1.5} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
+        <Box position-x={-1.5} />
       </Canvas>
     </>
   )

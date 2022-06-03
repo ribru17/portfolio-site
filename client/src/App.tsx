@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './App.css'
 import {
   BrowserRouter,
@@ -11,10 +11,37 @@ import Contact from './Components/Pages/Contact'
 import Projects from './Components/Pages/Projects'
 import Experience from './Components/Pages/Experience'
 import Menu from './Components/SVGs/Menu/Menu'
+import DropDown from './Components/DropDown/DropDown'
 
 function App() {
 
-  const [isClicked, setIsClicked] = useState<boolean>(false)
+  const [isOpen, setIsOpen] = useState<boolean>(false)
+
+  const dropDownRef = useRef<HTMLDivElement>(null)
+  const svgRef = useRef<SVGSVGElement>(null)
+
+  const openDropDown = () => {
+    setIsOpen(prev => !prev)
+  }
+
+  useEffect(() => {
+    /**
+    * Alert if clicked on outside of element
+    */
+    function handleClickOutside(e: MouseEvent) {
+      if (dropDownRef.current && !dropDownRef.current.contains(e.target as Node) && svgRef.current && !svgRef.current.contains(e.target as Node)) {
+        if (isOpen) {
+          setIsOpen(false)
+        }
+      }
+    }
+    // Bind the event listener
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+    // Unbind the event listener on clean up
+      document.removeEventListener("mousedown", handleClickOutside);
+    }
+  }, [dropDownRef, svgRef, isOpen])
 
   return (
     <BrowserRouter>
@@ -26,8 +53,9 @@ function App() {
             <Link to="/experience">Experience</Link>
             <Link to="/contact">Contact</Link>
           </div>
-          <Menu fill='white' id="menuSvg" onClick={() => {setIsClicked(!isClicked)}}/>
+          <Menu ref={svgRef} fill='white' open={isOpen} id="menuSvg" onClick={openDropDown}/>
         </div>
+        <DropDown ref={dropDownRef} showing={isOpen} setShowing={setIsOpen} />
         <div id="mainBody">
           <Routes>
             <Route path="/contact" element={<Contact />}></Route>

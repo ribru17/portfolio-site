@@ -7,7 +7,6 @@ interface Props extends React.CSSProperties {
     open: boolean,
 }
 
-// export default function Menu(props: Props) {
 const Menu = React.forwardRef((props: Props, ref: React.ForwardedRef<SVGSVGElement>) => {
 
     const {id, onClick, ...styles} = props

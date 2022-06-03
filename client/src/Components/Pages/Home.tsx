@@ -21,8 +21,8 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 
   useFrame(() => {
     ref.current.rotation.x += 0.01
-    ref.current.position.y = 2 * state.scrollPercent.current - 2.5
-    ref.current.position.z = 6 + state.scrollPercent.current * -5
+    ref.current.position.y = THREE.MathUtils.lerp(-2.5, -0.5, state.scrollPercent.current)
+    ref.current.position.z = THREE.MathUtils.lerp(6, 1, state.scrollPercent.current)
   })
 
   return (
@@ -43,8 +43,8 @@ function Torus(props: TorusProps) {
   useFrame(() => {
     ref.current.rotation.y += 0.008
     ref.current.rotation.z += 0.01
-    ref.current.position.y = 2 * state.scrollPercent.current
-    ref.current.position.z = 5 * state.scrollPercent.current
+    ref.current.position.y = THREE.MathUtils.lerp(0, 2, state.scrollPercent.current)
+    ref.current.position.z = THREE.MathUtils.lerp(0, 5, state.scrollPercent.current)
   })
 
   return (

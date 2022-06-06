@@ -69,9 +69,10 @@ export default function Home() {
     zIndex: -1,
     userSelect: 'none',
     msUserSelect: 'none',
+    minHeight: 900
   }
 
-  const handleScroll = (e: Event) => {
+  const handleScroll = (e?: Event) => {
     // update scroll percent reference
     state.scrollPercent.current = Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
   }
@@ -80,6 +81,7 @@ export default function Home() {
   useEffect(() => {
     setSubHeaderWidth('75%')
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
@@ -96,14 +98,14 @@ export default function Home() {
           I love programming and I have worked on countless projects, both in teams and by myself.
         </p>
       </div>
-      <div className='textBlock rightBlock'>
+      {/* <div className='textBlock rightBlock'>
         <h2>Something Else</h2>
           <p>
             Some other thing
           </p>
-      </div>
-      <Projects />
+      </div> */}
       <Experience />
+      <Projects />
       <Contact />
 
       <Canvas style={canvasStyle}>

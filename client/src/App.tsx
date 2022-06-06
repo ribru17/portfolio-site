@@ -49,8 +49,8 @@ function App() {
         <div id='navBar'>
           <Link id="nameLink" to="/">Riley Bruins<img className='logo' src='logo192.png' alt='Logo'></img></Link>
           <div id="otherLinks">
-            <Link to="/projects">Projects</Link>
             <Link to="/experience">Experience</Link>
+            <Link to="/projects">Projects</Link>
             <Link to="/contact">Contact</Link>
           </div>
           <Menu ref={svgRef} fill='white' open={isOpen} id="menuSvg" onClick={openDropDown}/>

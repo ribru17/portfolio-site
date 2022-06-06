@@ -22,10 +22,10 @@ const DropDown = React.forwardRef((props: DropDownType, ref: React.ForwardedRef<
             case '/':
                 setActivePage(['active', '', '', ''])
                 break
-            case '/projects':
+            case '/experience':
                 setActivePage(['', 'active', '', ''])
                 break
-            case '/experience':
+            case '/projects':
                 setActivePage(['', '', 'active', ''])
                 break
             case '/contact':
@@ -40,8 +40,8 @@ const DropDown = React.forwardRef((props: DropDownType, ref: React.ForwardedRef<
                 borderRight: props.showing ? '2px solid darkgoldenrod' : 'none'
             }}>
             <Link className={activePage[0]} to="/">Home</Link>
-            <Link className={activePage[1]} to="/projects">Projects</Link>
-            <Link className={activePage[2]} to="/experience">Experience</Link>
+            <Link className={activePage[1]} to="/experience">Experience</Link>
+            <Link className={activePage[2]} to="/projects">Projects</Link>
             <Link className={activePage[3]} to="/contact">Contact</Link>
         </div>
     )

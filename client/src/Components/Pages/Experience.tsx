@@ -1,16 +1,28 @@
+import { useEffect } from "react"
 import "./CSS/experience.css"
 
-export default function Experience() {
+interface PageProps {
+    resetScroll: boolean
+}
+
+export default function Experience(props: PageProps) {
+
+    useEffect(() => {
+        if (props.resetScroll) {
+            window.scrollTo(0, 0)
+        }
+    })
+
     return (
         <>
             <h1>Experience</h1>
-            <div className="largeBlock">
+            <div className="largeBlock" id="experienceBody">
                 <p>
                     &emsp;&emsp;I mostly use Express with Node for my backends and favor React as my frontend
                     framework. I'm very comfortable with the MERN stack but I'm an extremely quick
                     learner and I can handle any frameworks thrown my way. Take a look at some of my
                     skills below!
-                    </p>
+                </p>
                 <div id="experienceCont">
                     <div className="bar">
                         <div className="max">Node.js</div>
@@ -19,7 +31,7 @@ export default function Experience() {
                         <div className="max">Javascript</div>
                     </div>
                     <div className="bar">
-                        <div className="max">React.js / React Native</div>
+                        <div className="max">React.js & React Native</div>
                     </div>
                     <div className="bar">
                         <div className="max">MongoDB</div>

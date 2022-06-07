@@ -28,3 +28,11 @@
     box-sizing: border-box;
     border-radius: 5px;
 }
+
+#experienceBody {
+    padding-top: 0;
+}
+
+#experienceBody p {
+    padding-bottom: 5%;
+}

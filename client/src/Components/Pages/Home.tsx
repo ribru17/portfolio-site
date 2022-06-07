@@ -104,7 +104,7 @@ export default function Home() {
             Some other thing
           </p>
       </div> */}
-      <Experience />
+      <Experience resetScroll={false} />
       <Projects />
       <Contact />
 

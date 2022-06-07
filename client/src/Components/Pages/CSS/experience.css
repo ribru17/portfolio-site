@@ -10,11 +10,21 @@
     background-color: darkgoldenrod;
     padding: 15px;
     border-radius: 5px;
+    box-sizing: border-box;
 }
 
 #experienceCont .eighty {
     width: 80%;
     background-color: darkgoldenrod;
     padding: 15px;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#experienceCont .sixty {
+    width: 60%;
+    background-color: darkgoldenrod;
+    padding: 15px;
+    box-sizing: border-box;
     border-radius: 5px;
 }

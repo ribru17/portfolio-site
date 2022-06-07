@@ -4,8 +4,13 @@ export default function Experience() {
     return (
         <>
             <h1>Experience</h1>
-            <div className="textBlock">
-                <p>Worked on ...</p>
+            <div className="largeBlock">
+                <p>
+                    &emsp;&emsp;I mostly use Express with Node for my backends and favor React as my frontend
+                    framework. I'm very comfortable with the MERN stack but I'm an extremely quick
+                    learner and I can handle any frameworks thrown my way. Take a look at some of my
+                    skills below!
+                    </p>
                 <div id="experienceCont">
                     <div className="bar">
                         <div className="max">Node.js</div>
@@ -30,6 +35,9 @@ export default function Experience() {
                     </div>
                     <div className="bar">
                         <div className="eighty">Python</div>
+                    </div>
+                    <div className="bar">
+                        <div className="sixty">R</div>
                     </div>
                 </div>
             </div>

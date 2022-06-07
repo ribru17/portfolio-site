@@ -28,6 +28,13 @@ a:visited {
   text-align: left;
 }
 
+.largeBlock {
+  width: 50%;
+  /* max-width: 350px; */
+  padding: 5%;
+  text-align: left;
+}
+
 .centerBlock {
   text-align: center;
 }

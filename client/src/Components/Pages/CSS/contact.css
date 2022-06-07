@@ -59,14 +59,15 @@ button.coolButton:focus-visible {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 35%;
+    width: 50%;
+    min-width: 300px;
 }
 
 #contactInvite {
     padding: 0;
     display: flex;
     flex-direction: row;
-    width: 35%;
+    width: 50%;
     min-width: 300px;
     text-align: left;
 }

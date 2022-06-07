@@ -19,9 +19,7 @@ export default function Experience(props: PageProps) {
             <div className="largeBlock" id="experienceBody">
                 <p>
                     &emsp;&emsp;I mostly use Express with Node for my backends and favor React as my frontend
-                    framework. I'm very comfortable with the MERN stack but I'm an extremely quick
-                    learner and I can handle any frameworks thrown my way. Take a look at some of my
-                    skills below!
+                    framework. Take a look at some of my skills below!
                 </p>
                 <div id="experienceCont">
                     <div className="bar">

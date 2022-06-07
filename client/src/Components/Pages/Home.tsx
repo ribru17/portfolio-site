@@ -21,7 +21,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
 
   useFrame(() => {
     ref.current.rotation.x += 0.01
-    ref.current.position.y = THREE.MathUtils.lerp(-2.5, -0.5, state.scrollPercent.current)
+    ref.current.position.y = THREE.MathUtils.lerp(-2.5, 0.5, state.scrollPercent.current)
     ref.current.position.z = THREE.MathUtils.lerp(6, 1, state.scrollPercent.current)
   })
 

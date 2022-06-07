@@ -9,6 +9,10 @@ export default function Projects() {
                 <h2>Wurd (Text Editor App)</h2>
                 <img src={Wurd} alt="Wurd preview" />
                 <div className="descDiv">
+                    <div className="stackDiv">
+                        <p>C++</p>
+                        <p>OOP</p>
+                    </div>
                     <p>
                         This is a text editor app I made for a school project. The text editor is
                         capable of basic functions such as opening and editing files, and saving and creating
@@ -17,10 +21,6 @@ export default function Projects() {
                         written in C) and demonstrates OOP principles and different data structures such as tries,
                         linked lists, stacks, etc.
                     </p>
-                    <div className="stackDiv">
-                        <p>C++</p>
-                        <p>OOP</p>
-                    </div>
                 </div>
             </div>
         </>

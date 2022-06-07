@@ -47,6 +47,9 @@ export default function Experience(props: PageProps) {
                         <div className="eighty">Python</div>
                     </div>
                     <div className="bar">
+                        <div className="sixty">Rust</div>
+                    </div>
+                    <div className="bar">
                         <div className="sixty">R</div>
                     </div>
                 </div>

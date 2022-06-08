@@ -54,6 +54,7 @@ a {
   align-items: center;
   flex-direction: column;
   padding-top: 75px;
+  margin-bottom: 100px;
 }
 
 #root {

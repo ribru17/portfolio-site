@@ -1,11 +1,24 @@
+import { ForwardedRef, forwardRef, useEffect, useState } from 'react'
 import Github from '../SVGs/Github/Github'
 import Wurd from '../../assets/images/wurd.jpg'
 import Westwordle from '../../assets/images/westwordle.jpg'
+import PageProps from '../../Types/PageProps'
 import './CSS/projects.css'
 
-export default function Projects() {
+// export default function Projects(props: PageProps) {
+const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>) => {
+
+    const [pageClass, setPageClass] = useState('pageDiv')
+
+    useEffect(() => {
+        if (props.standAlone) {
+            window.scrollTo(0, 0)
+            setPageClass('pageDiv active')
+        }
+    }, [props.standAlone])
+
     return (
-        <>
+        <div className={pageClass} ref={ref}>
             <h1>Projects</h1>
             <div className="projectDiv">
                 <h2 className='projectTitle'>Westwordle<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/westwordle"><Github /></a></h2>
@@ -17,7 +30,7 @@ export default function Projects() {
                     </div>
                     <p>
                         This is a take on the New York Times' popular Wordle game with all words
-                        being UCLA-themed in some way. 
+                        being UCLA-themed. 
                     </p>
                 </div>
             </div>
@@ -37,6 +50,8 @@ export default function Projects() {
                     </p>
                 </div>
             </div>
-        </>
+        </div>
     )
-}
+})
+
+export default Projects

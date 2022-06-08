@@ -58,10 +58,10 @@ function App() {
         <DropDown ref={dropDownRef} showing={isOpen} setShowing={setIsOpen} />
         <div id="mainBody">
           <Routes>
-            <Route path="/contact" element={<Contact />}></Route>
+            <Route path="/contact" element={<Contact standAlone={true} />}></Route>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/projects" element={<Projects />}></Route>
-            <Route path="/experience" element={<Experience resetScroll={true} />}></Route>
+            <Route path="/projects" element={<Projects standAlone={true} />}></Route>
+            <Route path="/experience" element={<Experience standAlone={true} />}></Route>
           </Routes>
         </div>
       </div>

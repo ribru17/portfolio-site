@@ -1,20 +1,22 @@
-import { useEffect } from "react"
+import React, { useEffect, forwardRef, useState } from "react"
+import PageProps from '../../Types/PageProps'
 import "./CSS/experience.css"
 
-interface PageProps {
-    resetScroll: boolean
-}
+// export default function Experience(props: PageProps) {
+const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDivElement>) => {
 
-export default function Experience(props: PageProps) {
+// })
+    const [pageClass, setPageClass] = useState('pageDiv')
 
     useEffect(() => {
-        if (props.resetScroll) {
+        if (props.standAlone) {
             window.scrollTo(0, 0)
+            setPageClass('pageDiv active')
         }
-    })
+    }, [props.standAlone])
 
     return (
-        <>
+        <div className={pageClass} ref={ref}>
             <h1>Experience</h1>
             <div className="largeBlock" id="experienceBody">
                 <p>
@@ -57,6 +59,8 @@ export default function Experience(props: PageProps) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
-}
+})
+
+export default Experience

@@ -61,32 +61,52 @@ function Torus(props: TorusProps) {
 export default function Home() {
 
   const [subHeaderWidth, setSubHeaderWidth] = useState('0%')
+  
+  const expRef = createRef<HTMLDivElement>()
+  const contactRef = createRef<HTMLDivElement>()
+  const projectsRef = createRef<HTMLDivElement>()
 
   // handling this in CSS proved a bit buggy
   const canvasStyle: React.CSSProperties = {
     position: 'fixed',
     top: 0,
     left: 0,
-    zIndex: -1,
+    zIndex: -9,
     userSelect: 'none',
     msUserSelect: 'none',
     minHeight: 900
   }
 
-  const handleScroll = (e?: Event) => {
-    // update scroll percent reference
-    state.scrollPercent.current = Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
-  }
-
   // subheader expand animation on window load
   useEffect(() => {
+    window.scrollTo(0, 0)
+    state.scrollPercent.current = 0
+  }, [])
+
+  useEffect(() => {
+    const refs: React.RefObject<HTMLDivElement>[] = [expRef, contactRef, projectsRef]
+    const handleScroll = (e?: Event) => {
+      // update scroll percent reference
+      for (let i = 0; i < refs.length; i++) {
+        state.scrollPercent.current = Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
+        let windowHeight = window.innerHeight;
+        // if (refs[i].current) { // this is for some reason not working :/
+          let elementTop = refs[i].current?.getBoundingClientRect().top;
+          let elementVisible = 250;
+      
+          if (elementTop && elementTop < windowHeight - elementVisible) {
+            refs[i].current?.classList.add("active");
+          }
+      }
+    }
+
     setSubHeaderWidth('75%')
     window.addEventListener('scroll', handleScroll)
     handleScroll()
     return () => {
       window.removeEventListener('scroll', handleScroll)
     }
-  }, [])
+  }, [expRef, contactRef, projectsRef])
 
   return (
     <>
@@ -99,15 +119,9 @@ export default function Home() {
           I love programming and I have worked on countless projects, both in teams and by myself.
         </p>
       </div>
-      {/* <div className='textBlock rightBlock'>
-        <h2>Something Else</h2>
-          <p>
-            Some other thing
-          </p>
-      </div> */}
-      <Experience resetScroll={false} />
-      <Projects />
-      <Contact />
+      <Experience standAlone={false} ref={expRef} />
+      <Projects standAlone={false} ref={projectsRef} />
+      <Contact standAlone={false} ref={contactRef} />
 
       <Canvas style={canvasStyle}>
         <ambientLight intensity={0.5} />

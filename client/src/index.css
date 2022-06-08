@@ -41,6 +41,21 @@ a {
   color: inherit;
 }
 
+.pageDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+#mainBody {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 75px;
+}
+
 #root {
   width: 100%;
 }

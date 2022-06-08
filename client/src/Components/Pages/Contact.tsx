@@ -1,10 +1,14 @@
-import { FormEvent, useRef, useState } from "react"
-import './CSS/contact.css'
+import React, { FormEvent, useRef, useState, forwardRef, useEffect } from "react"
 import GithubIcon from "../SVGs/Github/Github"
 import LinkedInIcon from "../SVGs/LinkedIn/LinkedIn"
 import CoolButton from "../CoolButton/CoolButton"
+import PageProps from '../../Types/PageProps'
+import './CSS/contact.css'
 
-export default function Contact() {
+// export default function Contact(props: PageProps) {
+const Contact = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDivElement>) => {
+
+// })
 
     interface ContactForm extends HTMLFormControlsCollection {
         name?: HTMLInputElement,
@@ -14,6 +18,13 @@ export default function Contact() {
 
     const formRef = useRef<HTMLFormElement>(null)
     const [buttonText, setButtonText] = useState('Send')
+    const [pageClass, setPageClass] = useState('pageDiv')
+
+    useEffect(() => {
+        if (props.standAlone) {
+            setPageClass('pageDiv active')
+        }
+    }, [props.standAlone])
 
     const sendMail = async (e: FormEvent) => {
         e.preventDefault()
@@ -44,7 +55,7 @@ export default function Contact() {
     }
 
     return (
-        <>
+        <div className={pageClass} ref={ref}>
             <h1>Contact</h1>
             <div id="contactInvite">
                 <p>
@@ -61,6 +72,8 @@ export default function Contact() {
                 <textarea rows={3} autoComplete="off" placeholder="Your message" name="message" required></textarea>
                 <CoolButton title={buttonText} onClick={(e) => formRef.current?.submit} />
             </form>
-        </>
+        </div>
     )
-}
+})
+
+export default Contact

@@ -52,6 +52,25 @@ a:visited {
   height: 100%;
 }
 
+/* .noReveal {
+  opacity: 1;
+  margin-top: 0;
+  transform: translate(0);
+} */
+
+.pageDiv {
+  opacity: 0;
+  transition: 0.5s;
+  /* margin-top: 42px; */
+  z-index: -1;
+  transform: translate(0px, 42px);
+}
+
+.pageDiv.active {
+  opacity: 1;
+  transform: translate(0px, 0px);
+}
+
 #navBar {
   display: flex;
   width: 100%;
@@ -116,14 +135,6 @@ a:visited {
   position: absolute;
   float: right;
   padding: 5%;
-}
-
-#mainBody {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 80px;
 }
 
 @media (max-width: 800px) {

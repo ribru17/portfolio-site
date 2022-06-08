@@ -86,17 +86,17 @@ export default function Home() {
   useEffect(() => {
     const refs: React.RefObject<HTMLDivElement>[] = [expRef, contactRef, projectsRef]
     const handleScroll = (e?: Event) => {
-      // update scroll percent reference
       for (let i = 0; i < refs.length; i++) {
+        // update scroll percent reference
         state.scrollPercent.current = Math.min(window.scrollY / (document.body.offsetHeight - window.innerHeight), 1)
         let windowHeight = window.innerHeight;
-        // if (refs[i].current) { // this is for some reason not working :/
-          let elementTop = refs[i].current?.getBoundingClientRect().top;
-          let elementVisible = 250;
-      
-          if (elementTop && elementTop < windowHeight - elementVisible) {
-            refs[i].current?.classList.add("active");
-          }
+        // if (refs[i].current) {} // this is for some reason not working :/
+        let elementTop = refs[i].current?.getBoundingClientRect().top;
+        let elementVisible = 250;
+        // reveal elements when scrolling into view
+        if (elementTop && elementTop < windowHeight - elementVisible) {
+          refs[i].current?.classList.add("active");
+        }
       }
     }
 

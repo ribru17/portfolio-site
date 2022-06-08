@@ -5,24 +5,34 @@ import Westwordle from '../../assets/images/westwordle.jpg'
 import PageProps from '../../Types/PageProps'
 import './CSS/projects.css'
 
-// export default function Projects(props: PageProps) {
+const TOTAL_IMAGES = 2
+
 const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>) => {
 
     const [pageClass, setPageClass] = useState('pageDiv')
+    const [loadedImages, setLoadedImages] = useState(0)
+
+    // account for an image loading
+    const imageLoaded = () => {
+        setLoadedImages(prev => prev + 1)
+    }
 
     useEffect(() => {
         if (props.standAlone) {
             window.scrollTo(0, 0)
-            setPageClass('pageDiv active')
+            // if rendering the standalone page, only load the page after all the images
+            if (loadedImages === TOTAL_IMAGES) {
+                setPageClass('pageDiv active')
+            }
         }
-    }, [props.standAlone])
+    }, [props.standAlone, loadedImages])
 
     return (
         <div className={pageClass} ref={ref}>
             <h1>Projects</h1>
             <div className="projectDiv">
                 <h2 className='projectTitle'>Westwordle<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/westwordle"><Github /></a></h2>
-                <img src={Westwordle} alt="Westwordle preview" />
+                <img onLoad={imageLoaded} src={Westwordle} alt="Westwordle preview" />
                 <div className="descDiv">
                     <div className="stackDiv">
                         <p>React</p>
@@ -36,7 +46,7 @@ const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>
             </div>
             <div className="projectDiv">
                 <h2 className='projectTitle'>Wurd (Text Editor App)<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/text-editor-app"><Github /></a></h2>
-                <img src={Wurd} alt="Wurd preview" />
+                <img onLoad={imageLoaded} src={Wurd} alt="Wurd preview" />
                 <div className="descDiv">
                     <div className="stackDiv">
                         <p>C++</p>

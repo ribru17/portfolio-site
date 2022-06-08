@@ -1,3 +1,4 @@
+import Github from '../SVGs/Github/Github'
 import Wurd from '../../assets/images/wurd.jpg'
 import Westwordle from '../../assets/images/westwordle.jpg'
 import './CSS/projects.css'
@@ -7,7 +8,7 @@ export default function Projects() {
         <>
             <h1>Projects</h1>
             <div className="projectDiv">
-                <h2>Westwordle</h2>
+                <h2 className='projectTitle'>Westwordle<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/westwordle"><Github /></a></h2>
                 <img src={Westwordle} alt="Westwordle preview" />
                 <div className="descDiv">
                     <div className="stackDiv">
@@ -21,7 +22,7 @@ export default function Projects() {
                 </div>
             </div>
             <div className="projectDiv">
-                <h2>Wurd (Text Editor App)</h2>
+                <h2 className='projectTitle'>Wurd (Text Editor App)<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/text-editor-app"><Github /></a></h2>
                 <img src={Wurd} alt="Wurd preview" />
                 <div className="descDiv">
                     <div className="stackDiv">
@@ -32,9 +33,7 @@ export default function Projects() {
                         This is a text editor app I made for a school project. The text editor is
                         capable of basic functions such as opening and editing files, and saving and creating
                         files, and also comes with a basic spell checking system based on a provided dictionary
-                        file which can also be changed by the user. It was programmed in C++ (using libraries
-                        written in C) and demonstrates OOP principles and different data structures such as tries,
-                        linked lists, stacks, etc.
+                        file which can also be changed by the user.
                     </p>
                 </div>
             </div>

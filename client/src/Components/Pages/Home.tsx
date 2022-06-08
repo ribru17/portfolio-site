@@ -92,7 +92,8 @@ export default function Home() {
         let windowHeight = window.innerHeight;
         // if (refs[i].current) {} // this is for some reason not working :/
         let elementTop = refs[i].current?.getBoundingClientRect().top;
-        let elementVisible = 250;
+        // reveal content when past 1/8 of the page
+        let elementVisible = window.innerHeight / 8
         // reveal elements when scrolling into view
         if (elementTop && elementTop < windowHeight - elementVisible) {
           refs[i].current?.classList.add("active");

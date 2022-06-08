@@ -4,6 +4,7 @@ import { Canvas, useFrame } from '@react-three/fiber'
 import Projects from './Projects'
 import Experience from './Experience'
 import Contact from './Contact'
+import "./CSS/home.css"
 
 type MeshProps = JSX.IntrinsicElements['mesh']
 interface TorusProps extends MeshProps {
@@ -43,7 +44,7 @@ function Torus(props: TorusProps) {
   useFrame(() => {
     ref.current.rotation.y += 0.008
     ref.current.rotation.z += 0.01
-    ref.current.position.y = THREE.MathUtils.lerp(0, 2, state.scrollPercent.current)
+    ref.current.position.y = THREE.MathUtils.lerp(0.25, 2, state.scrollPercent.current)
     ref.current.position.z = THREE.MathUtils.lerp(0, 5, state.scrollPercent.current)
   })
 
@@ -91,7 +92,7 @@ export default function Home() {
     <>
       <h1>Riley Bruins</h1>
       <h2 style={{maxWidth: subHeaderWidth}} className='subHeader'>Driven and passionate full stack developer</h2>
-      <div className='textBlock leftBlock'>
+      <div className='aboutMe'>
         <h2>About Me</h2>
         <p>
           I am a full stack developer with 3+ years of experience building websites.

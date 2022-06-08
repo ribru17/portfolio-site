@@ -18,7 +18,7 @@ export default function Experience(props: PageProps) {
             <h1>Experience</h1>
             <div className="largeBlock" id="experienceBody">
                 <p>
-                    &emsp;&emsp;I mostly use Express with Node for my backends and favor React as my frontend
+                    I mostly use Express with Node for my backends and favor React as my frontend
                     framework. Take a look at some of my skills below!
                 </p>
                 <div id="experienceCont">
@@ -30,6 +30,9 @@ export default function Experience(props: PageProps) {
                     </div>
                     <div className="bar">
                         <div className="max">React.js & React Native</div>
+                    </div>
+                    <div className="bar">
+                        <div className="max">Typescript</div>
                     </div>
                     <div className="bar">
                         <div className="max">MongoDB</div>

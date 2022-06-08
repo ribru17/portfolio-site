@@ -1,0 +1,33 @@
+.aboutMe {
+    padding: 5%;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-right: 25%;
+    width: 35%;
+    min-width: 350px;
+    text-align: left;
+    /* font-size: 1.5em; */
+}
+
+.aboutMe p {
+    font-size: 1.5em;
+}
+
+.aboutMe h2 {
+    font-size: 2em;
+}
+
+@media (max-width: 800px) {
+    .aboutMe {
+        margin: 0;
+        font-size: 1em;
+    }
+
+    .aboutMe p {
+        font-size: 1.25em;
+    }
+
+    .aboutMe h2 {
+        font-size: 1.75em;
+    }
+}

@@ -142,8 +142,8 @@ export default function Home() {
 
       <Canvas style={canvasStyle}>
         <ambientLight intensity={0.5} />
-        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[5, 10, 10]} />
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={0.5} />
+        <pointLight position={[5, 10, 10]} intensity={0.5} />
         <Torus rotation-y={Math.PI / 3} points={5}/>
         <Torus rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
         <Torus rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />

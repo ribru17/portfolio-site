@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 import React, { useRef, useState, useEffect, createRef, MutableRefObject } from 'react'
-import { Canvas, useFrame } from '@react-three/fiber'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
 import Projects from './Projects'
 import Experience from './Experience'
 import Contact from './Contact'
@@ -26,9 +26,12 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
     ref.current.position.z = THREE.MathUtils.lerp(6, 1, state.scrollPercent.current)
   })
 
+  const { size } = useThree()
+
   return (
     <mesh
       {...props}
+      position-x={-0.5 - size.width / 600}
       ref={ref}
     >
       <boxGeometry args={[1, 1, 1]}></boxGeometry>
@@ -48,9 +51,12 @@ function Torus(props: TorusProps) {
     ref.current.position.z = THREE.MathUtils.lerp(0, 5, state.scrollPercent.current)
   })
 
+  const { size } = useThree()
+
   return (
     <mesh
       {...props}
+      position-x={size.width / 400}
       ref={ref}>
       <torusGeometry args={[1, 0.1, 16, props.points]} />
       <meshPhongMaterial color={'slateblue'} />
@@ -113,12 +119,22 @@ export default function Home() {
     <>
       <h1>Riley Bruins</h1>
       <h2 style={{maxWidth: subHeaderWidth}} className='subHeader'>Driven and passionate full stack developer</h2>
-      <div className='aboutMe'>
-        <h2>About Me</h2>
-        <p>
-          I am a full stack developer with 3+ years of experience building websites.
-          I love programming and I have worked on countless projects, both in teams and by myself.
-        </p>
+      <div id="aboutMeCont">
+        <div className='aboutMe'>
+          <h2>About Me</h2>
+          <p>
+            I am a full stack developer with 3+ years of experience building websites.
+            I love programming and I have worked on countless projects, both in teams and by myself.
+          </p>
+        </div>
+        <div id="aboutMeDivider" style={{borderRight: '1px solid white'}}></div>
+        <div className='aboutMe'>
+          <h2>My Priorities</h2>
+          <p>
+            When building a website (or any application), I always make sure that it is performant and simple
+            to navigate. Nobody wants to wait forever or get lost figuring out a website!
+          </p>
+        </div>
       </div>
       <Experience standAlone={false} ref={expRef} />
       <Projects standAlone={false} ref={projectsRef} />
@@ -127,11 +143,11 @@ export default function Home() {
       <Canvas style={canvasStyle}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-        <pointLight position={[-10, -10, -10]} />
-        <Torus position-x={1.5} rotation-y={Math.PI / 3} points={5}/>
-        <Torus position-x={1.5} rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
-        <Torus position-x={1.5} rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
-        <Box position-x={-1.5} />
+        <pointLight position={[5, 10, 10]} />
+        <Torus rotation-y={Math.PI / 3} points={5}/>
+        <Torus rotation-y={Math.PI / 2} rotation-x={Math.PI / 3} scale={0.5} points={4} />
+        <Torus rotation-y={Math.PI} rotation-x={2 * Math.PI / 3} scale={0.25} points={3} />
+        <Box />
       </Canvas>
     </>
   )

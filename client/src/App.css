@@ -14,7 +14,7 @@ a:visited {
 .subHeader {
   margin-top: 0;
   padding-bottom: 20px;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid white;
   transition: .75s cubic-bezier(0.85,-0.06, 0.88, 0.53);
   max-width: 75%;
   overflow: hidden;
@@ -22,7 +22,7 @@ a:visited {
 }
 
 .largeBlock {
-  width: 50%;
+  width: 85%;
   padding: 5%;
   text-align: left;
   min-width: 300px;

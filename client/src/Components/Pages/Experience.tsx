@@ -20,7 +20,7 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                 <p>
                     I mostly use Express with Node for my backends and favor React as my frontend
                     framework. I even built this website using React with Typescript, complete with an Express
-                    backend! You can view this site's source code <a href="https://github.com/ribru17/portfolio-site">here</a> or
+                    backend! You can view this site's source code <a className="inlineLink" target="_blank" rel="noreferrer" href="https://github.com/ribru17/portfolio-site">here</a> or
                     take a look at some of my skills below!
                 </p>
                 <div id="experienceCont">

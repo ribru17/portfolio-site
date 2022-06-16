@@ -6,6 +6,16 @@
     margin-bottom: 20px;
 }
 
+.inlineLink, .inlineLink:visited {
+    border-bottom: 2px solid white;
+    transition: 0.3s;
+}
+
+.inlineLink:hover {
+    border-bottom: 2px solid rgba(255, 255, 255, 0);
+    color: goldenrod;
+}
+
 #experienceCont .max {
     background-image: linear-gradient(to right, darkgoldenrod, goldenrod);
     padding: 15px;

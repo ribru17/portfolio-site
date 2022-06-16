@@ -16,7 +16,9 @@ const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>
 
     const imageLoaded = after(TOTAL_IMAGES, () => {
         setLoading(false)
-        setPageClass('pageDiv active')
+        if (props.standAlone) {
+            setPageClass('pageDiv active')
+        }
     })
 
     useEffect(() => {

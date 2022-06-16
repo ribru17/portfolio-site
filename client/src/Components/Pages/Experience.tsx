@@ -2,10 +2,8 @@ import React, { useEffect, forwardRef, useState } from "react"
 import PageProps from '../../Types/PageProps'
 import "./CSS/experience.css"
 
-// export default function Experience(props: PageProps) {
 const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDivElement>) => {
 
-// })
     const [pageClass, setPageClass] = useState('pageDiv')
 
     useEffect(() => {
@@ -21,7 +19,9 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
             <div className="largeBlock" id="experienceBody">
                 <p>
                     I mostly use Express with Node for my backends and favor React as my frontend
-                    framework. Take a look at some of my skills below!
+                    framework. I even built this website using React with Typescript, complete with an Express
+                    backend! You can view this site's source code <a href="https://github.com/ribru17/portfolio-site">here</a> or
+                    take a look at some of my skills below!
                 </p>
                 <div id="experienceCont">
                     <div className="bar">

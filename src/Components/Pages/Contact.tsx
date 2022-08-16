@@ -29,7 +29,8 @@ const Contact = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDivEle
     const sendMail = async (e: FormEvent) => {
         e.preventDefault()
         let fields: ContactForm = (e.target as HTMLFormElement).elements
-        let rootUrl = process.env.NODE_ENV === 'production' ? 'https://rb-portfolio-site.herokuapp.com' : ''
+        // let rootUrl = process.env.NODE_ENV === 'production' ? 'https://rb-portfolio-site.herokuapp.com' : ''
+        let rootUrl = 'https://rb-portfolio-site.herokuapp.com'
         let messageName = fields.name?.value || ""
         let messageContent = fields.message?.value || ""
         if (fields.name) {

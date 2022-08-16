@@ -1,19 +1,14 @@
 # Portfolio Website
 
 A web portfolio of myself made by myself to showcase what I can do.
+[Visit the site here](https://ribru17.github.io/portfolio-site)
 
 ## Running
 
-To run this project clone the repository and then `npm run devStart` in the project directory.
-This will do two things. First it will transpile the server Typescript in `watch` mode and run (with Nodemon) the resulting Javascript as a proxy server on port 8000. Next it will start the React client on
-port 3000 as normal. This way changes to the client and server will be reflected immediately.
+To run this project clone it and then run `npm start` in the cloned directory. This will run the client and you don't need to worry about
+the server as it is hosted separately on Heroku.
 
-## Deploying
+## Server
 
-I encountered some odd issues when deploying this app revolving around Typescript being recognized in
-the build phase of the `server` folder. This prevented the app from compiling as the Typescript was a
-dev dependency and was not recognized when being deployed. To prevent this I could either make Typescript
-and its imported types regular dependencies in the server folder (slower load time) or rely on the user to
-transpile the code ahead of time. I chose the latter, so be aware if for some reason you run into a similar
-problem. I was unable to find a fix that kept the packages as dev dependencies and I am still working on
-the issue.
+The server is hosted on Heroku as I ran into some troubles trying to bundle the client and server together. For my purposes
+the server is just a simple endpoint that e-mails me the content of the `Contact` page.

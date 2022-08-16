@@ -47,21 +47,21 @@ function App() {
     <BrowserRouter>
       <div>
         <div id='navBar'>
-          <Link id="nameLink" to="/">Riley Bruins<img className='logo' src='logo192.png' alt='Logo'></img></Link>
+          <Link id="nameLink" to="/portfolio-site">Riley Bruins<img className='logo' src='/portfolio-site/logo192.png' alt='Logo'></img></Link>
           <div id="otherLinks">
-            <Link to="/experience">Experience</Link>
-            <Link to="/projects">Projects</Link>
-            <Link to="/contact">Contact</Link>
+            <Link to="/portfolio-site/experience">Experience</Link>
+            <Link to="/portfolio-site/projects">Projects</Link>
+            <Link to="/portfolio-site/contact">Contact</Link>
           </div>
           <Menu ref={svgRef} fill='white' open={isOpen} id="menuSvg" onClick={openDropDown}/>
         </div>
         <DropDown ref={dropDownRef} showing={isOpen} setShowing={setIsOpen} />
         <div id="mainBody">
           <Routes>
-            <Route path="/contact" element={<Contact standAlone={true} />}></Route>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/projects" element={<Projects standAlone={true} />}></Route>
-            <Route path="/experience" element={<Experience standAlone={true} />}></Route>
+            <Route path="/portfolio-site/contact" element={<Contact standAlone={true} />}></Route>
+            <Route path="/portfolio-site" element={<Home />}></Route>
+            <Route path="/portfolio-site/projects" element={<Projects standAlone={true} />}></Route>
+            <Route path="/portfolio-site/experience" element={<Experience standAlone={true} />}></Route>
           </Routes>
         </div>
       </div>

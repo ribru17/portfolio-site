@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "A web portfolio of myself made by myself to showcase what I can do.",
   "private": true,
-  "homepage": "https://ribru17.github.io",
+  "homepage": "https://ribru17.github.io/portfolio-site/",
   "dependencies": {
     "@react-three/fiber": "^8.0.19",
     "@testing-library/jest-dom": "^5.16.4",

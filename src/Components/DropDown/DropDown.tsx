@@ -19,16 +19,17 @@ const DropDown = React.forwardRef((props: DropDownType, ref: React.ForwardedRef<
 
     useEffect(() => {
         switch(location.pathname) {
-            case '/':
+            case '/portfolio-site':
+            case '/portfolio-site/':
                 setActivePage(['active', '', '', ''])
                 break
-            case '/experience':
+            case '/portfolio-site/experience':
                 setActivePage(['', 'active', '', ''])
                 break
-            case '/projects':
+            case '/portfolio-site/projects':
                 setActivePage(['', '', 'active', ''])
                 break
-            case '/contact':
+            case '/portfolio-site/contact':
                 setActivePage(['', '', '', 'active'])
                 break
         }
@@ -39,10 +40,10 @@ const DropDown = React.forwardRef((props: DropDownType, ref: React.ForwardedRef<
                 maxWidth: props.showing ? '150px' : '0%',
                 borderRight: props.showing ? '2px solid darkgoldenrod' : 'none'
             }}>
-            <Link className={activePage[0]} to="/">Home</Link>
-            <Link className={activePage[1]} to="/experience">Experience</Link>
-            <Link className={activePage[2]} to="/projects">Projects</Link>
-            <Link className={activePage[3]} to="/contact">Contact</Link>
+            <Link className={activePage[0]} to="/portfolio-site">Home</Link>
+            <Link className={activePage[1]} to="/portfolio-site/experience">Experience</Link>
+            <Link className={activePage[2]} to="/portfolio-site/projects">Projects</Link>
+            <Link className={activePage[3]} to="/portfolio-site/contact">Contact</Link>
         </div>
     )
 })

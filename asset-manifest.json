@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/static/css/main.4955fcd8.css",
-    "main.js": "/static/js/main.4e99ecaa.js",
-    "static/media/chordeographerpreview.jpg": "/static/media/chordeographerpreview.065a6298c68787a851a6.jpg",
-    "static/media/wurd.jpg": "/static/media/wurd.117ef3b6156fe785c8d5.jpg",
-    "static/media/westwordle.jpg": "/static/media/westwordle.6e97182d521fac2ffe96.jpg",
-    "index.html": "/index.html",
-    "main.4955fcd8.css.map": "/static/css/main.4955fcd8.css.map",
-    "main.4e99ecaa.js.map": "/static/js/main.4e99ecaa.js.map"
+    "main.css": "/portfolio-site/static/css/main.4955fcd8.css",
+    "main.js": "/portfolio-site/static/js/main.f645d2f1.js",
+    "static/media/chordeographerpreview.jpg": "/portfolio-site/static/media/chordeographerpreview.065a6298c68787a851a6.jpg",
+    "static/media/wurd.jpg": "/portfolio-site/static/media/wurd.117ef3b6156fe785c8d5.jpg",
+    "static/media/westwordle.jpg": "/portfolio-site/static/media/westwordle.6e97182d521fac2ffe96.jpg",
+    "index.html": "/portfolio-site/index.html",
+    "main.4955fcd8.css.map": "/portfolio-site/static/css/main.4955fcd8.css.map",
+    "main.f645d2f1.js.map": "/portfolio-site/static/js/main.f645d2f1.js.map"
   },
   "entrypoints": [
     "static/css/main.4955fcd8.css",
-    "static/js/main.4e99ecaa.js"
+    "static/js/main.f645d2f1.js"
   ]
 }

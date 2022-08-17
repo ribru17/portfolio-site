@@ -17,12 +17,30 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
         <div className={pageClass} ref={ref}>
             <h1>Experience</h1>
             <div className="largeBlock" id="experienceBody">
-                <p>
-                    I mostly use Express with Node for my backends and favor React as my frontend
-                    framework. I even built this website using React with Typescript, complete with an Express
-                    backend! You can view this site's source code <a className="inlineLink" target="_blank" rel="noreferrer" href="https://github.com/ribru17/portfolio-site">here</a> or
-                    take a look at some of my skills below!
-                </p>
+                <h2>Work Experience</h2>
+                    <div className="flex">
+                        <div className="workCont">
+                            <div className="workInfoCont">
+                                <h3>AI Model Trainer at Surge AI</h3>
+                                <h3>June 2022 - August 2022</h3>
+                            </div>
+                            <p className="workText">
+                                Here I worked part-time with a team of over 80 people to write helpful and
+                                production-quality code in order to teach an AI model to do the same.
+                                My main focus was in Javascript and Typescript but I also trained
+                                the bot in Rust and C.
+                            </p>
+                        </div>
+                    </div>
+                <h2>Personal Experience</h2>
+                <div id="experienceTextCont">
+                    <p id="experienceText">
+                        I mostly use Express with Node for my backends and favor React as my frontend
+                        framework. I even built this website using React with Typescript, complete with an Express
+                        backend! You can view this site's source code <a className="inlineLink" target="_blank" rel="noreferrer" href="https://github.com/ribru17/portfolio-site">here</a> or
+                        take a look at some of my skills below!
+                    </p>
+                </div>
                 <div id="experienceCont">
                     <div className="bar">
                         <div className="max">Node.js</div>

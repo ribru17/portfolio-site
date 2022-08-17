@@ -44,10 +44,17 @@ a:visited {
   height: 100%;
 }
 
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .pageDiv {
   opacity: 0;
   transition: 0.5s;
   transform: translate(0px, 42px);
+  width: 100%;
 }
 
 .pageDiv.active {

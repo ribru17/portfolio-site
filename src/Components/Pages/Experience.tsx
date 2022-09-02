@@ -36,8 +36,8 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                 <div id="experienceTextCont">
                     <p id="experienceText">
                         I mostly use Express with Node for my backends and favor React as my frontend
-                        framework. I even built this website using React with Typescript, complete with an Express
-                        backend! You can view this site's source code <a className="inlineLink" target="_blank" rel="noreferrer" href="https://github.com/ribru17/portfolio-site">here</a> or
+                        framework. I even built this website using React and Typescript!
+                        You can view this site's source code <a className="inlineLink" target="_blank" rel="noreferrer" href="https://github.com/ribru17/portfolio-site">here</a> or
                         take a look at some of my skills below!
                     </p>
                 </div>
@@ -61,16 +61,16 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                         <div className="max">Git</div>
                     </div>
                     <div className="bar">
-                        <div className="eighty">C</div>
+                        <div className="max">C</div>
                     </div>
                     <div className="bar">
-                        <div className="eighty">C++</div>
+                        <div className="max">C++</div>
                     </div>
                     <div className="bar">
                         <div className="eighty">Python</div>
                     </div>
                     <div className="bar">
-                        <div className="sixty">Rust</div>
+                        <div className="eighty">Rust</div>
                     </div>
                     <div className="bar">
                         <div className="sixty">R</div>

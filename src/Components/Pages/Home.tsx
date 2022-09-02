@@ -6,6 +6,8 @@ import Experience from './Experience'
 import Contact from './Contact'
 import "./CSS/home.css"
 
+const ROTATION_FACTOR = 0.4
+
 type MeshProps = JSX.IntrinsicElements['mesh']
 interface TorusProps extends MeshProps {
   points: number,
@@ -21,7 +23,7 @@ function Box(props: JSX.IntrinsicElements['mesh']) {
   const ref = useRef<THREE.Mesh>(null!)
 
   useFrame(() => {
-    ref.current.rotation.x += 0.01
+    ref.current.rotation.x += 0.01 * ROTATION_FACTOR
     ref.current.position.y = THREE.MathUtils.lerp(-2.5, 0.5, state.scrollPercent.current)
     ref.current.position.z = THREE.MathUtils.lerp(6, 1, state.scrollPercent.current)
   })
@@ -45,8 +47,8 @@ function Torus(props: TorusProps) {
   const ref = useRef<THREE.Mesh>(null!)
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
-    ref.current.rotation.y += 0.008
-    ref.current.rotation.z += 0.01
+    ref.current.rotation.y += 0.008 * ROTATION_FACTOR
+    ref.current.rotation.z += 0.01 * ROTATION_FACTOR
     ref.current.position.y = THREE.MathUtils.lerp(0.25, 2, state.scrollPercent.current)
     ref.current.position.z = THREE.MathUtils.lerp(0, 5, state.scrollPercent.current)
   })

@@ -69,7 +69,7 @@ const Contact = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDivEle
                 </div>
             </div>
             <form ref={formRef} onSubmit={sendMail} id='contactForm'>
-                <input autoComplete="off" type="text" placeholder="Your name" name="name" required></input>
+                <input autoComplete="off" type="text" placeholder="Your email" name="name" required></input>
                 <textarea rows={3} autoComplete="off" placeholder="Your message" name="message" required></textarea>
                 <CoolButton title={buttonText} onClick={(e) => formRef.current?.submit} />
             </form>

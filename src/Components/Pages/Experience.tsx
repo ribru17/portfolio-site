@@ -46,13 +46,10 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                         <div className="max">Node.js</div>
                     </div>
                     <div className="bar">
-                        <div className="max">Javascript</div>
+                        <div className="max">Javascript / Typescript</div>
                     </div>
                     <div className="bar">
-                        <div className="max">React.js & React Native</div>
-                    </div>
-                    <div className="bar">
-                        <div className="max">Typescript</div>
+                        <div className="max">React.js / React Native</div>
                     </div>
                     <div className="bar">
                         <div className="max">MongoDB</div>
@@ -61,16 +58,13 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                         <div className="max">Git</div>
                     </div>
                     <div className="bar">
-                        <div className="max">C</div>
-                    </div>
-                    <div className="bar">
-                        <div className="max">C++</div>
-                    </div>
-                    <div className="bar">
-                        <div className="eighty">Python</div>
+                        <div className="max">C / C++</div>
                     </div>
                     <div className="bar">
                         <div className="eighty">Rust</div>
+                    </div>
+                    <div className="bar">
+                        <div className="eighty">Python</div>
                     </div>
                     <div className="bar">
                         <div className="sixty">R</div>

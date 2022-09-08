@@ -1,4 +1,4 @@
-import { ForwardedRef, forwardRef, useEffect } from 'react'
+import { ForwardedRef, forwardRef, useEffect, useState } from 'react'
 import Github from '../SVGs/Github/Github'
 import WurdGIF from '../../assets/images/wurdpreviewcropped.gif'
 import Westwordle from '../../assets/images/westwordle.jpg'
@@ -9,14 +9,17 @@ import './CSS/projects.css'
 
 const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>) => {
 
+    const [active, setActive] = useState(false)
+
     useEffect(() => {
         if (props.standAlone) {
             window.scrollTo(0, 0)
+            setActive(true)
         }
     }, [props.standAlone])
 
     return (
-        <div className='pageDiv active' ref={ref}>
+        <div className={`pageDiv ${active ? 'active' : ''}`} ref={ref}>
             <h1>Projects</h1>
             <h3>Click an image to show relevant skills.</h3>
             <div className="projectDiv">

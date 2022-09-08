@@ -17,7 +17,7 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
         <div className={pageClass} ref={ref}>
             <h1>Experience</h1>
             <div className="largeBlock" id="experienceBody">
-                <h2>Work Experience</h2>
+                <h2>Employment Experience</h2>
                     <div className="flex">
                         <div className="workCont">
                             <div className="workInfoCont">

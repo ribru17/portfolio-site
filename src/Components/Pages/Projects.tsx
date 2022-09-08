@@ -1,12 +1,12 @@
 import { ForwardedRef, forwardRef, useEffect } from 'react'
 // import { after } from 'underscore'
 import Github from '../SVGs/Github/Github'
-import Wurd from '../../assets/images/wurd.jpg'
+import WurdGIF from '../../assets/images/wurdpreviewcropped.gif'
 import Westwordle from '../../assets/images/westwordle.jpg'
 import Chordeographer from '../../assets/images/chordeographerpreview.jpg'
 import PageProps from '../../Types/PageProps'
-import './CSS/projects.css'
 import Card3D from '../Card3D/Card3D'
+import './CSS/projects.css'
 
 // const TOTAL_IMAGES = 0
 
@@ -62,7 +62,7 @@ const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>
                     <h2 className='projectTitle'>Wurd (Text Editor App)<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/text-editor-app"><Github /></a></h2>
                     {/* <img onLoad={() => {imageLoaded()}} src={Wurd} alt="Wurd preview" /> */}
                     
-                    <Card3D photo={Wurd} aspectRatio='2'>
+                    <Card3D photo={WurdGIF} aspectRatio='1.8'>
                         <div className="card-bar card-bar2"><span>C++</span></div>
                         <div className="card-bar card-bar2"><span>OOP</span></div>
                     </Card3D>

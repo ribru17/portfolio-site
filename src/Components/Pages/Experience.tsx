@@ -67,6 +67,9 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                         <div className="eighty">Python</div>
                     </div>
                     <div className="bar">
+                        <div className="sixty">C#</div>
+                    </div>
+                    <div className="bar">
                         <div className="sixty">R</div>
                     </div>
                 </div>

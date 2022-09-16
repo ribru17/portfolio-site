@@ -60,6 +60,9 @@ const Experience = forwardRef((props: PageProps, ref: React.ForwardedRef<HTMLDiv
                         <div className="max">React.js / React Native</div>
                     </div>
                     <div className="bar">
+                        <div className="max">HTML + CSS</div>
+                    </div>
+                    <div className="bar">
                         <div className="max">MongoDB</div>
                     </div>
                     <div className="bar">

@@ -23,12 +23,16 @@ h2 {
     min-width: 400px;
 }
 
+.spaceBottom {
+    margin-bottom: 20px;
+}
+
 .workInfoCont {
     background-color: #222;
     padding: 16px;
     border-radius: 8px;
     text-align: center;
-    margin-right: 30px;
+    /* margin-right: 30px; */
 }
 
 .workText {
@@ -36,6 +40,70 @@ h2 {
     vertical-align: middle;
     min-width: 300px;
     width: 40%;
+}
+
+.typewriterCont {
+    background-color: black;
+    padding: 50px;
+    border-radius: 8px;
+    text-align: center;
+    animation: toWhite 500ms 5s normal both;
+    flex-direction: row;
+    animation: colorChange 8s steps(1) 2s infinite normal forwards;
+    transition: 0.5s all;
+}
+
+.typewriterStatic {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+    mix-blend-mode: difference;
+}
+
+.typewriter {
+    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    margin: 0 auto;
+    mix-blend-mode: difference;
+    /* animation: blinkTextCursor 500ms steps(6) infinite normal; */
+}
+
+.typewriter::after {
+    content: "black;";
+    display: inline-block;
+    overflow: hidden;
+    border-right: 2px solid white;
+    animation:
+        typewriter 4s steps(6) 0s infinite normal both,
+        blinkTextCursor 500ms infinite normal,
+        contentChange 8s -1s infinite normal both;
+
+}
+
+@keyframes blinkTextCursor {
+    from { border-right-color: white; }
+    to { border-right-color: transparent; }
+}
+
+@keyframes typewriter {
+    0% { width: 0; }
+    50% { width: 3.5em; }
+    100% { width: 0; }
+}
+
+@keyframes contentChange {
+    0% { content: "black;"; }
+    50% { content: "white;"; }
+    100% { content: "black;"; }
+}
+
+@keyframes colorChange {
+    0% { background-color: white; }
+    50% { background-color: black; }
 }
 
 .inlineLink, .inlineLink:visited {
@@ -85,11 +153,14 @@ h2 {
 #experienceTextCont {
     display: flex;
     justify-content: center;
+    max-width: 350px;
+    /* text-align: center; */
 }
 
 #experienceText {
-    padding-bottom: 20px;
-    max-width: 500px;
+    /* padding-bottom: 20px; */
+    /* max-width: 500px; */
+    vertical-align: middle;
 }
 
 @media (max-width: 800px) {
@@ -99,5 +170,9 @@ h2 {
 
     .workInfoCont {
         margin-right: 0;
+    }
+
+    .revOnMobile {
+        flex-direction: column-reverse;
     }
 }

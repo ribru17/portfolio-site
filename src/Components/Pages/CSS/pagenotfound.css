@@ -57,11 +57,11 @@ pre {
 #notFoundHomeLink {
     color: white;
     transition: all 0.3s;
-    border-bottom: 2px solid white;
+    box-shadow: 0 2px white;
     font-size: x-large;
 }
 
 #notFoundHomeLink:hover {
     color: goldenrod;
-    border-bottom: none;
+    box-shadow: 0 0px white;
 }

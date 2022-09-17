@@ -50,7 +50,7 @@ pre {
     content: counter(line);
     margin-right: 1ch;
     padding-right: 1ch;
-    box-shadow: 1px 0 0 0 white;
+    box-shadow: inset -1px 0 0 0 white;
 
 }
 

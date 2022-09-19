@@ -21,7 +21,7 @@ const Projects = forwardRef((props: PageProps, ref: ForwardedRef<HTMLDivElement>
     return (
         <div className={`pageDiv ${active ? 'active' : ''}`} ref={ref}>
             <h1>Projects</h1>
-            <h3>Click an image to show relevant skills.</h3>
+            <h3 id="projectSubheader"> an image to show relevant skills.</h3>
             <div className="projectDiv">
                 <h2 className='projectTitle'>Westwordle<a className='toSource' rel='noreferrer' target="_blank" href="https://github.com/ribru17/westwordle"><Github /></a></h2>
                     <Card3D photo={Westwordle} aspectRatio='1.5'>

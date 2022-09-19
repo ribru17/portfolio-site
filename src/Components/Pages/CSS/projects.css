@@ -75,3 +75,13 @@
     fill: black;
     filter: drop-shadow(0px 0px 2px goldenrod);
 }
+
+#projectSubheader::before {
+    content: "Click";
+}
+
+@media (max-width: 800px) {
+    #projectSubheader::before {
+        content: "Tap";
+    }
+}

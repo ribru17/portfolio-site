@@ -6,6 +6,22 @@ pre {
     word-wrap: break-word;
 }
 
+.code-stringLiteral {
+    color: #CE9178;
+}
+
+.code-identifier {
+    color: #569CD6;
+}
+
+.code-property {
+    color: #9CDCFE;
+}
+
+.code-comment {
+    color: #7CA668;
+}
+
 .codeSnippet {
     padding: 3em;
     background-color: #222;
@@ -28,14 +44,14 @@ pre {
     }
 }
 
-.cursorLine {
-    border-right: 2px solid white;
+.cursorLine::after {
+    content: " ";
     animation: blinkTextCursor 1s steps(1) infinite normal both;
 }
 
 @keyframes blinkTextCursor {
-    0% { border-right-color: white; }
-    50% { border-right-color: transparent; }
+    0% { content: " "; }
+    50% { content: "|"; }
 }
 
 .codeSnippet header {
@@ -50,8 +66,7 @@ pre {
     content: counter(line);
     margin-right: 1ch;
     padding-right: 1ch;
-    box-shadow: inset -1px 0 0 0 white;
-
+    border-right: 1px solid white;
 }
 
 #notFoundHomeLink {

@@ -11,9 +11,9 @@ export default function PageNotFound() {
                 <header>
                     PageNotFound.tsx
                 </header>
-                <pre>{"<div className=\"pageDiv\">"}</pre>
-                <pre className="cursorLine">{"    {/* TODO: implement this page */}"}</pre>
-                <pre>{"</div>"}</pre>
+                <pre>&#60;<span className="code-identifier">div</span> <span className="code-property">className</span>=<span className="code-stringLiteral">"pageDiv"</span>&#62;</pre>
+                <pre className="cursorLine">    &#123;<span className="code-comment">&#47;* TODO: implement this page *&#47;</span>&#125;</pre>
+                <pre>&#60;/<span className="code-identifier">div</span>&#62;</pre>
             </div>
         </div>
     )

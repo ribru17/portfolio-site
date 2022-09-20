@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/portfolio-site/static/css/main.c10436e6.css",
+    "main.css": "/portfolio-site/static/css/main.b6d2264d.css",
     "main.js": "/portfolio-site/static/js/main.20dad4b1.js",
     "static/media/chordeographerpreview.jpg": "/portfolio-site/static/media/chordeographerpreview.065a6298c68787a851a6.jpg",
     "static/media/wurdpreviewcropped.gif": "/portfolio-site/static/media/wurdpreviewcropped.d3bbde8941b9a15e7f71.gif",
     "static/media/westwordle.jpg": "/portfolio-site/static/media/westwordle.6e97182d521fac2ffe96.jpg",
     "index.html": "/portfolio-site/index.html",
-    "main.c10436e6.css.map": "/portfolio-site/static/css/main.c10436e6.css.map",
+    "main.b6d2264d.css.map": "/portfolio-site/static/css/main.b6d2264d.css.map",
     "main.20dad4b1.js.map": "/portfolio-site/static/js/main.20dad4b1.js.map"
   },
   "entrypoints": [
-    "static/css/main.c10436e6.css",
+    "static/css/main.b6d2264d.css",
     "static/js/main.20dad4b1.js"
   ]
 }

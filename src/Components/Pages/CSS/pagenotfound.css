@@ -46,10 +46,10 @@ pre {
 
 .cursorLine::after {
     content: " ";
-    animation: blinkTextCursor 1s steps(1) infinite normal both;
+    animation: blinkTextCursorBar 1s steps(1) infinite normal both;
 }
 
-@keyframes blinkTextCursor {
+@keyframes blinkTextCursorBar {
     0% { content: " "; }
     50% { content: "|"; }
 }
